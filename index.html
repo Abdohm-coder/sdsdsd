@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../favicon.ico"> 
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/slicebox.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <title>Library</title>
+   
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+            <ul class="nav-links">
+                <li><a href="#top">الرئيسية</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="">اتصل بنا</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+    </div>
+    <div  class="top" id="top">     
+    </div>
+    <section id="about">
+        <div class="who">
+            <h1>من نحن ؟</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repudiandae sit exercitationem laboriosam saepe, nesciunt, excepturi in doloremque labore odio pariatur debitis commodi tempora beatae possimus error ab perspiciatis reiciendis.</p>
+        </div>
+        <div class="container">
+			<div class="wrapper">
+
+				<ul id="sb-slider" class="sb-slider">
+					<li>
+					<img src="images/1.jpg" alt="image1"/>
+					</li>
+					<li>
+					<img src="images/2.jpg" alt="image2"/>
+					</li>
+					<li>
+						<img src="images/3.jpg" alt="image1"/>
+					</li>
+					<li>
+						<img src="images/4.jpg" alt="image1"/>
+					</li>
+					<li>
+					<img src="images/5.jpg" alt="image1"/>
+					</li>
+					<li>
+						<img src="images/6.jpg" alt="image1"/>
+					</li>
+					<li>
+						<img src="images/7.jpg" alt="image1"/>
+					</li>
+				</ul>
+
+				<div id="shadow" class="shadow"></div>
+
+				<div id="nav-arrows" class="nav-arrows">
+					<a href="#">Next</a>
+					<a href="#">Previous</a>
+				</div>
+
+				<div id="nav-dots" class="nav-dots">
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+        </div>
+    </section>
+    <section id="services">
+			<div class="skewed-bg">
+			</div>
+        <div class="title">
+            <h1>خدماتنا</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos adipisci sunt.</p>
+        </div>
+        <div class="services-show">
+            <div class="service">
+                <div class="slide">
+					<div class="img-box">
+						<img src="images/11.jpg" alt="">
+					</div>
+					<div class="details">
+						<h2>What is Lorem ipsum</h2>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+					</div>
+				</div>
+                <div class="des"><h1>المقتنيات المدرسية</h1></div>
+            </div>
+            <div class="service">
+                <div class="slide">
+					<div class="img-box">
+						<img src="images/33.jpg" alt="">
+					</div>
+					<div class="details">
+						<h2>What is Lorem ipsum</h2>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+					</div>
+				</div>
+                <div class="des"><h1>روائح وعطور</h1></div>
+            </div>
+            <div class="service">
+                <div class="slide">
+					<div class="img-box">
+						<img src="images/22.jpg" alt="">
+					</div>
+					<div class="details">
+						<h2>What is Lorem ipsum</h2>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+					</div>
+				</div>
+                <div class="des"><h1>ألعاب ترفيهية</h1></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.slicebox.js"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				var Page = (function() {
+
+					var $navArrows = $( '#nav-arrows' ).hide(),
+						$navDots = $( '#nav-dots' ).hide(),
+						$nav = $navDots.children( 'span' ),
+						$shadow = $( '#shadow' ).hide(),
+						slicebox = $( '#sb-slider' ).slicebox( {
+							onReady : function() {
+
+								$navArrows.show();
+								$navDots.show();
+								$shadow.show();
+
+							},
+							onBeforeChange : function( pos ) {
+
+								$nav.removeClass( 'nav-dot-current' );
+								$nav.eq( pos ).addClass( 'nav-dot-current' );
+
+							}
+						} ),
+						
+						init = function() {
+
+							initEvents();
+							
+						},
+						initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':first' ).on( 'click', function() {
+
+								slicebox.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':last' ).on( 'click', function() {
+								
+								slicebox.previous();
+								return false;
+
+							} );
+
+							$nav.each( function( i ) {
+							
+								$( this ).on( 'click', function( event ) {
+									
+									var $dot = $( this );
+									
+									if( !slicebox.isActive() ) {
+
+										$nav.removeClass( 'nav-dot-current' );
+										$dot.addClass( 'nav-dot-current' );
+									
+									}
+									
+									slicebox.jump( i + 1 );
+									return false;
+								
+								} );
+								
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+			});
+		</script>
+        <script src="jquery-3.5.1.min."></script>
+        <script src="script.js"></script>
+</body>
+</html>
